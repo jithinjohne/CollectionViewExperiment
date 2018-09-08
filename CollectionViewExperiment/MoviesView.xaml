@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CollectionViewExperiment"
+    xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     mc:Ignorable="d"
     d:DesignHeight="450"
     d:DesignWidth="800">
@@ -15,9 +16,14 @@
         <CollectionViewSource
             Source="{Binding Movies}"
             x:Key="moivesView">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription
+                    PropertyName="ReleaseDate"
+                    Direction="Descending" />
+            </CollectionViewSource.SortDescriptions>
             <CollectionViewSource.GroupDescriptions>
                 <PropertyGroupDescription
-                    PropertyName="ReleaseYear"></PropertyGroupDescription>
+                    PropertyName="ReleaseYear" />
             </CollectionViewSource.GroupDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
